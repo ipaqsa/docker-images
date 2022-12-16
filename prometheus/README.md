@@ -1,18 +1,21 @@
 # Prometheus image
 
-Before starting the container, 
-create two directories for data and configuration, they will be mounted.
+Before starting container, create two dirs for data and config, they will be mounted.
 ```
 mkdir promconf
 mkdir promdata
 ```
 
-Then create a configuration file in promconf, for example, you can use an example file from:
+Then create config file in promconf, for example, you can use example file from:
 ```
 https://github.com/prometheus/prometheus/blob/main/documentation/examples/prometheus.yml
 ```
 Command for run:
 ```
-docker run --network="host" -v promdata:/promdata -v promconf:/etc/prometheus IMAGENAME
+docker run -v promdata:/promdata -v promconf:/etc/prometheus IMAGENAME
+```
+*If you want to be able to view services on localhost then specify flag:
+```
+--network="host"
 ```
 
