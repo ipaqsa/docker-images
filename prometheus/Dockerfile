@@ -3,14 +3,13 @@ RUN apt-get update && apt-get install -y prometheus && rm -f /var/cache/apt/arch
           /var/cache/apt/*.bin \
           /var/lib/apt/lists/*.*
           
-WORKDIR /prometheus       
-RUN chown -R nobody:nobody /etc/prometheus /prometheus
-USER       nobody
+WORKDIR /var/lib/prometheus       
+USER prometheus
 EXPOSE     9090
-VOLUME     [ "/prometheus" ]
+VOLUME     [ "/var/lib/prometheus" ]
 ENTRYPOINT [ "/usr/bin/prometheus" ]
 CMD        [ "--config.file=/etc/prometheus/prometheus.yml", \
-             "--storage.tsdb.path=/prometheus", \
+             "--storage.tsdb.path=/var/lib/prometheus", \
              "--web.console.libraries=/usr/share/prometheus/console_libraries", \
              "--web.console.templates=/usr/share/prometheus/consoles" ]
 
