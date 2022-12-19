@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y prometheus && rm -f /var/cache/apt/arch
           /var/lib/apt/lists/*.*
           
 WORKDIR /prometheus       
-
+RUN chown -R nobody:nobody /etc/prometheus /prometheus
 USER       nobody
 EXPOSE     9090
 VOLUME     [ "/prometheus" ]
