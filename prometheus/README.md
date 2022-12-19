@@ -7,7 +7,7 @@ mkdir promdata
 
 Command for run:
 ```
-docker run --name="prometheus" -p 9090:9090 -v $PWD/promdata:/promehteus IMAGENAME
+docker run --name="prometheus" -p 9090:9090 -v $PWD/promdata:/var/lib/prometheus IMAGENAME
 ```
 
 *If you want to be able to view services on localhost, instead of -p, specify the flag:
