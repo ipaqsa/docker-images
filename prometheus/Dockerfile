@@ -7,5 +7,4 @@ WORKDIR /var/lib/prometheus
 USER prometheus
 EXPOSE     9090
 VOLUME     [ "/var/lib/prometheus" ]
-ENTRYPOINT [ "/usr/bin/prometheus" ]
-CMD ["--config.file=/etc/prometheus/prometheus.yml"]
+ENTRYPOINT [ "/usr/bin/prometheus", "--config.file=/etc/prometheus/prometheus.yml"]
