@@ -8,5 +8,3 @@ USER prometheus
 EXPOSE     9090
 VOLUME     [ "/var/lib/prometheus" ]
 ENTRYPOINT [ "/usr/bin/prometheus" ]
-
-
